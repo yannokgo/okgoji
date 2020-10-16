@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+
+
+    <link rel="stylesheet" href="./static/prism.css">
+    
+    <script>
+      function showHide() {
+        var x = document.getElementById("show_hide_theme");
+        if (x.style.display === "block") {
+          x.style.display = "none";
+        } else {
+          x.style.display = "block";
+        }
+        var y = document.getElementById("show_hide_button");
+        if (y.style.display === "none") {
+          y.style.display = "block";
+        } else {
+          y.style.display = "none";
+        }
+      
+      }
+
+  </script>    
+</head>
+
+<body>
+
+    <div class="container">
+        <input type="checkbox" class="toggler" id="checkbox">
+        <div class="hamburger">
+            <div></div>
+        </div>
+        <header id="header" class="queries titled">
+            <br>
+       
+            
+            okgoDEV
+        </header>
+
+        <nav id="nav">
+
+            <p>
+                <details>
+                  <summary>Cheat Sheets</summary>
+                  <div class="hide" id="AboutMARKDOWN" style="visibility:hidden;"><object data="./html/markdown.html"
+                      type="text/html"></object></div>
+                  <button
+                    onclick="document.getElementById('mainDIV').innerHTML=document.getElementById('AboutMARKDOWN').innerHTML;">Markdown</button>
+                  <div class="hide" id="sass_doc" style="visibility:hidden;"><object data="./html/sass.html" type="text/html"></object></div>
+                  <button
+                    onclick="document.getElementById('mainDIV').innerHTML=document.getElementById('sass_doc').innerHTML;">Sass</button>
+                </details>
+                </p>
+
+  
+
+              
+              <p><details>
+                <summary>Networking</summary>
+                <p><a href="./html/ssh.html" title="SSH connections">SSH</a></p>
+              </details></p>
+              
+              <p><details>
+                <summary>Linux</summary>
+                <p><a href="./html/bindKeys.html" title="General">General</a></p>
+              </details></p>
+              
+              <p><details>
+                <summary>Initialization</summary>
+                <p><a href="./html/sass.html" title="Initialization">Initialization</a></p>
+              </details></p>
+
+        </nav>
+        <main id="main">
+            <div id="mainDIV">
+                <div id="main_doc" style="visibility:hidden;"><object data="./html/sass.html" type="text/html"></object></div>
+              </div>
+        </main>
+        <aside id="aside">
+aside
+        </aside>
+        <footer id="footer">footer</footer>
+    </div>
+    <script>document.getElementById('mainDIV').innerHTML = document.getElementById('main_doc').innerHTML;</script>
+    <script src="script.js"></script>
+    <script src="./static/prism.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron');
+
+:root {
+    --nav-bg-color: blue;
+    --dark-color: rgb(50, 50, 50);
+    --dark-text-color: rgb(224, 224, 224);
+    --light-color: lightgray;
+    --light-text-color: rgb(50, 50, 50);
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.titled {
+    font-size: 3.5rem;
+    letter-spacing: 0vw;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    line-height: 1.75em;
+    font-size: 16px;
+    font-weight: 600;
+    background: #222;
+    color: #aaa;
+  }
+
+nav button {
+  padding: 0.5rem;
+  margin: 1px;
+  border: none;
+  background: rgba(0, 161, 161, 0);
+  color: rgb(189, 189, 189);
+  letter-spacing: 0.1rem;
+  border-radius: 0.3rem;
+  font-size: large;
+  font-family: none;
+  text-decoration: underline;
+  visibility: visible;
+}
+
+nav button:hover {
+  color: rgb(114, 114, 202);
+}
+
+summary,
+details {
+  list-style: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.2rem;
+}
+
+summary::-webkit-details-marker {
+  display: none; /* Chrome */
+}
+
+summary {
+    cursor: pointer;
+    margin-bottom: 1rem;
+
+}
+
+.hide {
+    z-index: -10;
+    display: none;
+}
+
+object {
+    height: 100vh;
+    width: 100%;
+}
+.container {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: gray;
+}
+
+
+
+#header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15vh;
+    width: 100vw;
+    background: teal;
+}
+
+#nav {
+    position: fixed;
+    top: 15vh;
+    left: 0;
+    width: 15vw;
+    height: 85vh;
+    background: blue;
+    transition: all 0.1s ease 0.1s;
+
+    z-index: 2;
+}
+
+#main {
+    position: fixed;
+    top: 15vh;
+    left: 15vw;
+    height: 70vh;
+    width: 70vw;
+    background: gray;
+    transition: all 0.1s ease-in 0.1s;
+
+    z-index: 1;
+}
+
+#aside {
+    position: fixed;
+    top: 15vh;
+    right: 0;
+    width: 15vw;
+    height: 85vh;
+    background: yellowgreen;
+    transition: all 0.1s ease 0.1s;
+
+    z-index: 2;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 85vw;
+    height: 15vh;
+    background: tomato;
+    transition: all 0.1s ease 0.1s;
+
+    z-index: 3;
+}
+
+.toggler,
+.hamburger {
+    display: none;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 700px) {
+    #nav {
+        width: 0;
+        font-size: 0;
+        visibility: hidden;
+        z-index: -10;
+    }
+
+    #main {
+        top: 15vh;
+        left: 0;
+        height: 85vh;
+        width: 100vw;
+
+        text-align: -999;
+    }
+
+    #aside {
+        width: 0;
+        font-size: 0;
+    }
+
+    #footer {
+        height: 0;
+        width: 100vw;
+        font-size: 0;
+    }
+
+    button {
+        visibility: hidden;
+    }
+
+    .toggler {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 2;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        opacity: 0;
+    }
+
+    .hamburger {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        width: 60px;
+        height: 60px;
+        padding: 1rem;
+        background: rgba(128, 128, 128, 0.377);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Hamburger line */
+    .hamburger>div {
+        position: relative;
+        width: 100%;
+        height: 2px;
+        background: rgb(197, 197, 197);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.4s ease;
+    }
+
+    /* Top and bottom lines */
+    .hamburger>div:before,
+    .hamburger>div:after {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        top: -10px;
+        width: 100%;
+        height: 2px;
+        background: inherit;
+    }
+
+    /* Move line down */
+    .hamburger>div:after {
+        top: 10px;
+    }
+
+    /* Toggler animate */
+    .toggler:checked+.hamburger>div {
+        transform: rotate(135deg);
+    }
+
+    /* Turn lines into X */
+    .toggler:checked+.hamburger>div:before,
+    .toggler:checked+.hamburger>div:after {
+        top: 0;
+        transform: rotate(90deg);
+    }
+
+    /* Rotate on hover when checked */
+    .toggler:checked:hover+.hamburger>div {
+        transform: rotate(225deg);
+    }
+
+    /* Show menu */
+
+    }
+    .toggler:checked ~ #nav {
+        width: 75vw;
+        font-size: x-large;
+        z-index: 3;
+        visibility: visible;
+    }
+    .toggler:checked ~ #nav > *{
+        visibility: visible;
+    }
+
+    .toggler:checked ~ #aside {
+        width: 25vw;
+        font-size: medium;
+    }
+    .toggler:checked ~ #footer {
+        height: 15vh;
+        font-size: medium;
+    }
+    .toggler:checked ~ #main {
+        font-size: 0;
+    }
+
+    /* Transition */
+
+    .toggler,
+    .hamburger {
+        display: flex;
+
+    }
+
+    .toggler {
+        visibility: visible;
+    }
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .queries {
+        background: green;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .queries {
+        background: blue;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .queries {
+        background: orange;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .queries {
+        background: pink;
+    }
+}
+::-webkit-scrollbar {
+    width: 30px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background-image: linear-gradient(135deg, #b94444, yellow);
+    box-shadow: inset 0 0 6px rgba(173, 75, 75, 0.822);
+  }
+  /*   CUSTOm!  */
+
+div.code-toolbar > .toolbar {
+	opacity: 1;
+}
+
+div.code-toolbar > .toolbar button{
+	background: rgb(192, 192, 0);
+	height: 30px;
+	color: black;
+}
+
+div.code-toolbar > .toolbar button:focus,
+div.code-toolbar > .toolbar button:hover{
+	background: rgb(194, 176, 78);
+	padding: 0 10px 0 10px;
+}
+div.code-toolbar > .toolbar span{
+	border-color: teal;
+}
+
